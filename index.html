@@ -540,62 +540,12 @@ function phase3() {
 
 const PROGRAM = [...phase1(),...phase2(),...phase3()];
 
-// Exercise video demos (MuscleWiki)
-const VIDEOS = {
-  'DB Bench Press':'https://musclewiki.com/exercise/dumbbell-bench-press',
-  'DB Incline Press':'https://musclewiki.com/exercise/dumbbell-incline-bench-press',
-  'DB Flyes':'https://musclewiki.com/exercise/dumbbell-chest-fly',
-  'DB Floor Press':'https://musclewiki.com/exercise/dumbbell-floor-press',
-  'DB Shoulder Press (seated)':'https://musclewiki.com/exercise/dumbbell-seated-overhead-press',
-  'DB Shoulder Press':'https://musclewiki.com/exercise/dumbbell-seated-overhead-press',
-  'DB Arnold Press':'https://musclewiki.com/exercise/dumbbell-arnold-press',
-  'DB Lateral Raises':'https://musclewiki.com/exercise/dumbbell-lateral-raise',
-  'DB Lateral Raise Drop Set':'https://musclewiki.com/exercise/dumbbell-lateral-raise',
-  'DB Front Raises':'https://musclewiki.com/exercise/dumbbell-front-raise',
-  'DB Bent-Over Rows':'https://musclewiki.com/exercise/dumbbell-bent-over-row',
-  'DB Single-Arm Row':'https://musclewiki.com/exercise/dumbbell-row',
-  'DB Reverse Flyes':'https://musclewiki.com/exercise/dumbbell-rear-delt-fly',
-  'DB Pullovers':'https://musclewiki.com/exercise/dumbbell-pullover',
-  'DB Bicep Curls':'https://musclewiki.com/exercise/dumbbell-curl',
-  'DB Hammer Curls':'https://musclewiki.com/exercise/dumbbell-hammer-curl',
-  'DB Concentration Curls':'https://musclewiki.com/exercise/dumbbell-concentration-curl',
-  'DB Tricep Kickbacks':'https://musclewiki.com/exercise/dumbbell-tricep-kickback',
-  'DB Overhead Tricep Extension':'https://musclewiki.com/exercise/dumbbell-overhead-tricep-extension',
-  'DB Goblet Squats':'https://musclewiki.com/exercise/dumbbell-goblet-squat',
-  'DB Lunges (alternating)':'https://musclewiki.com/exercise/dumbbell-lunge',
-  'DB Lunges (stationary)':'https://musclewiki.com/exercise/dumbbell-lunge',
-  'DB Reverse Lunges':'https://musclewiki.com/exercise/dumbbell-reverse-lunge',
-  'DB Bulgarian Split Squats':'https://musclewiki.com/exercise/dumbbell-bulgarian-split-squat',
-  'DB Step-Ups (on bench)':'https://musclewiki.com/exercise/dumbbell-step-up',
-  'DB Step-Ups (weighted)':'https://musclewiki.com/exercise/dumbbell-step-up',
-  'DB Romanian Deadlifts':'https://musclewiki.com/exercise/dumbbell-romanian-deadlift',
-  'DB Single-Leg Deadlift':'https://musclewiki.com/exercise/dumbbell-single-leg-deadlift',
-  'DB Calf Raises':'https://musclewiki.com/exercise/dumbbell-calf-raise',
-  'DB Calf Raises (single leg)':'https://musclewiki.com/exercise/dumbbell-calf-raise',
-  'DB Thrusters':'https://musclewiki.com/exercise/dumbbell-thruster',
-  'DB Renegade Rows':'https://musclewiki.com/exercise/dumbbell-renegade-row',
-  'DB Curls + Tricep Kickbacks':'https://musclewiki.com/exercise/dumbbell-curl',
-  'DB Hammer Curls + OH Extension':'https://musclewiki.com/exercise/dumbbell-hammer-curl',
-  'Push-Ups':'https://musclewiki.com/exercise/push-up',
-  'Plank (floor)':'https://musclewiki.com/exercise/plank',
-  'Stability Ball Plank':'https://musclewiki.com/exercise/plank',
-  'Stability Ball Crunches':'https://musclewiki.com/exercise/bodyweight-stability-ball-crunch',
-  'Stability Ball Back Extensions':'https://musclewiki.com/exercise/lower-back-extensions-3',
-  'Stability Ball Jackknife':'https://musclewiki.com/exercise/stability-ball-knee-tuck',
-  'Dead Bugs':'https://musclewiki.com/exercise/dead-bug',
-  'Bicycle Crunches':'https://musclewiki.com/exercise/bicycle-crunch',
-  'Burpees (no push-up)':'https://musclewiki.com/exercise/burpee',
-  'Cable Chest Flyes':'https://musclewiki.com/exercise/cable-pec-fly',
-  'Cable Tricep Pushdowns':'https://musclewiki.com/exercise/cable-rope-pushdown',
-  'Cable Face Pulls':'https://musclewiki.com/exercise/machine-face-pulls',
-  'Cable Rows (seated on bench)':'https://musclewiki.com/exercise/machine-seated-cable-row',
-  'Cable Bicep Curls':'https://musclewiki.com/exercise/cable-bar-curl',
-  'Cable Woodchops':'https://musclewiki.com/exercise/cable-standing-high-to-low-wood-chopper',
-  'Ab Roller':'https://musclewiki.com/exercise/machine-roll-outs',
-  'Stair Climber':'https://musclewiki.com/exercise/stair-climber',
-  'Stair Climber intervals':'https://musclewiki.com/exercise/stair-climber',
-  'Stair Climber HIIT':'https://musclewiki.com/exercise/stair-climber',
-};
+// Exercise video demos — YouTube search (always works, shows top video results)
+function getVideoUrl(name) {
+  const q = encodeURIComponent(name.replace(/^DB /, 'Dumbbell ') + ' form guide');
+  return 'https://www.youtube.com/results?search_query=' + q;
+}
+const VIDEOS = {}; // Use dynamic lookup via getVideoUrl()
 
 // ═══════════════════════════════════════════════════════════════
 // STATE
@@ -676,7 +626,9 @@ function renderWeek(wi) {
       exs.forEach((ex,ei)=>{
         const k=exKey(wi,di,sec,ei), d=isDone(k);
         const detail = (ex.sets?ex.sets+' \u00d7 ':'')+ex.reps;
-        const vid = VIDEOS[ex.name] ? `<a class="video-link" href="${VIDEOS[ex.name]}" target="_blank" onclick="event.stopPropagation()">▶ Demo</a>` : '';
+        const skipVideo = /Treadmill|Elliptical|Bike|Stretching|Stair Climber/.test(ex.name);
+        const vidUrl = getVideoUrl(ex.name);
+        const vid = skipVideo ? '' : `<a class="video-link" href="${vidUrl}" target="_blank" onclick="event.stopPropagation()">▶ Demo</a>`;
         h+=`<div class="exercise">
           <div class="exercise-check ${d?'done':''}" onclick="toggleEx('${k}',this,event)"></div>
           <div class="exercise-info"><div class="exercise-name">${ex.name}${vid}</div>
