@@ -283,7 +283,7 @@ body {
   </div>
   <div class="info-card">
     <h3>🏋️ Your Equipment</h3>
-    <p>Dumbbells · Flat bench · Treadmills · Stationary bikes · Ellipticals · Stability balls</p>
+    <p>Dumbbells (full rack) · Adjustable incline bench · Cable functional trainer · Stair climber · Treadmills · Stationary bikes · Ellipticals · Stability balls · Ab roller · Exercise mat</p>
   </div>
   <div class="info-card">
     <h3>📐 The 3-Phase Plan</h3>
@@ -403,15 +403,15 @@ function phase2() {
         'Chest':[
           makeEx('DB Bench Press',s,r,'Increase weight from Phase 1'),
           makeEx('DB Incline Press',s,r,'Bench at 30-45 degrees'),
-          makeEx('DB Flyes',s,'12','Slight bend in elbows, feel the stretch'),
+          makeEx('Cable Chest Flyes',s,'12','Set pulleys to chest height, squeeze at center'),
         ],
         'Shoulders & Triceps':[
           makeEx('DB Shoulder Press',s,r,''),
           makeEx('DB Lateral Raises',s,'12','Superset with front raises'),
           makeEx('DB Front Raises',s,'12',''),
-          makeEx('DB Overhead Tricep Extension',s,r,'One heavy DB, both hands'),
+          makeEx('Cable Tricep Pushdowns',s,r,'Keep elbows pinned to sides'),
         ],
-        'Cardio Finisher':[makeEx('Treadmill intervals','','10 min','1 min fast walk / 1 min jog')],
+        'Cardio Finisher':[makeEx('Stair Climber','','10 min','Moderate pace, no leaning on rails')],
         'Cool-Down':cooldown()
       }},
       {name:'Tuesday',type:'lower',label:'Lower Strength',sections:{
@@ -432,28 +432,28 @@ function phase2() {
       {name:'Wednesday',type:'upper',label:'Upper Pull',sections:{
         'Warm-Up':warmup(2),
         'Back':[
-          makeEx('DB Bent-Over Rows',4,r,'Heavier — 4 sets'),
+          makeEx('Cable Rows (seated on bench)',s,r,'Sit on bench facing machine, pull to chest'),
           makeEx('DB Single-Arm Row',s,'10 each','One knee on bench'),
-          makeEx('DB Reverse Flyes',s,'12','Bent over, squeeze shoulder blades'),
+          makeEx('Cable Face Pulls',s,'15','Set pulley high, pull to face, squeeze rear delts'),
           makeEx('DB Pullovers',s,'12','Lie on bench, arc the DB overhead'),
         ],
         'Biceps & Core':[
           makeEx('DB Hammer Curls',s,r,''),
-          makeEx('DB Concentration Curls',s,'10 each','Seated, elbow on inner thigh'),
-          makeEx('Stability Ball Plank',s,'30-45 sec',''),
+          makeEx('Cable Bicep Curls',s,'12','Low pulley, constant tension'),
+          makeEx('Ab Roller',s,'8-10','On knees, roll out slowly, don\'t collapse'),
           makeEx('Bicycle Crunches',s,'15 each side',''),
         ],
         'Cool-Down':cooldown()
       }},
       {name:'Thursday',type:'cardio',label:'Cardio + Circuit',sections:{
         'Warm-Up':warmup(2),
-        'Cardio':[makeEx('Treadmill incline walk/jog','',ct+' min','2 min jog / 2 min incline walk')],
+        'Cardio':[makeEx('Stair Climber intervals','',ct+' min','2 min moderate / 1 min fast')],
         'Full Body Circuit (3 rounds)':[
           makeEx('DB Thrusters','','12','Squat to overhead press — one fluid motion'),
           makeEx('DB Renegade Rows','','8 each','Plank position, row one arm'),
           makeEx('DB Reverse Lunges','','10 each',''),
           makeEx('Push-Ups','','max reps','Knees OK if needed'),
-          makeEx('Stability Ball Crunches','','15','Rest 60 sec after each round'),
+          makeEx('Ab Roller','','8','Rest 60 sec after each round'),
         ],
         'Cool-Down':cooldown()
       }}
@@ -472,12 +472,14 @@ function phase3() {
         'Chest & Shoulders':[
           makeEx('DB Bench Press',s,r,'Heaviest you can with good form'),
           makeEx('DB Incline Press',s,r,''),
+          makeEx('Cable Chest Flyes',s,'12','Squeeze hard at the center'),
           makeEx('DB Arnold Press',s,'10','Rotate palms during press'),
           makeEx('DB Lateral Raise Drop Set',3,'10, 10, 10','Heavy to light, no rest'),
         ],
         'Arms Superset':[
-          makeEx('DB Curls + Tricep Kickbacks',3,'10 each','Back to back, no rest'),
-          makeEx('DB Hammer Curls + OH Extension',3,'10 each','Superset'),
+          makeEx('Cable Tricep Pushdowns',3,'12','Superset with curls'),
+          makeEx('Cable Bicep Curls',3,'12','Back to back, no rest'),
+          makeEx('DB Hammer Curls',3,'10','Finish with heavy DBs'),
         ],
         'Finisher':[makeEx('Push-Ups',3,'max reps','60 sec rest between sets')],
         'Cool-Down':cooldown()
@@ -492,10 +494,10 @@ function phase3() {
         ],
         'Calves & Core':[
           makeEx('DB Calf Raises (single leg)',3,'12 each','Hold one heavy DB'),
-          makeEx('Plank',3,'45-60 sec',''),
-          makeEx('Stability Ball Jackknife',3,'12','Feet on ball, pull knees in'),
+          makeEx('Ab Roller',3,'10-12','Full extension if possible'),
+          makeEx('Cable Woodchops',3,'12 each side','Set pulley high, rotate through core'),
         ],
-        'HIIT Finisher':[makeEx('Bike sprints','','10 min','20 sec all-out / 40 sec easy x10')],
+        'HIIT Finisher':[makeEx('Stair Climber HIIT','','10 min','30 sec sprint / 30 sec easy x10')],
         'Cool-Down':cooldown()
       }},
       {name:'Wednesday',type:'full',label:'Upper Volume',sections:{
@@ -503,30 +505,30 @@ function phase3() {
         'Push Circuit (3 rounds)':[
           makeEx('DB Bench Press','','10',''),
           makeEx('DB Shoulder Press','','10',''),
-          makeEx('DB Flyes','','12',''),
+          makeEx('Cable Chest Flyes','','12',''),
           makeEx('Push-Ups','','max','Rest 90 sec after each round'),
         ],
         'Pull Circuit (3 rounds)':[
-          makeEx('DB Bent-Over Rows','','10',''),
+          makeEx('Cable Rows (seated on bench)','','10',''),
           makeEx('DB Single-Arm Row','','10 each',''),
-          makeEx('DB Reverse Flyes','','12',''),
-          makeEx('DB Bicep Curls','','12','Rest 90 sec after each round'),
+          makeEx('Cable Face Pulls','','15',''),
+          makeEx('Cable Bicep Curls','','12','Rest 90 sec after each round'),
         ],
         'Core':[
-          makeEx('Stability Ball Plank',3,'45 sec',''),
+          makeEx('Ab Roller',3,'10-12',''),
           makeEx('Dead Bugs',3,'12 each side',''),
         ],
         'Cool-Down':cooldown()
       }},
       {name:'Thursday',type:'cardio',label:'HIIT + Full Body',sections:{
         'Warm-Up':warmup(3),
-        'HIIT Cardio':[makeEx('Treadmill HIIT','','15 min','1 min jog / 30 sec sprint / 30 sec walk')],
+        'HIIT Cardio':[makeEx('Stair Climber HIIT','','15 min','1 min fast / 30 sec sprint / 30 sec easy')],
         'Full Body Burnout (4 rounds)':[
           makeEx('DB Thrusters','','12',''),
           makeEx('DB Renegade Rows','','8 each',''),
           makeEx('DB Reverse Lunges','','10 each',''),
-          makeEx('DB Floor Press','','12','Lie on floor, press up'),
-          makeEx('Stability Ball Crunches','','15',''),
+          makeEx('Cable Tricep Pushdowns','','15',''),
+          makeEx('Ab Roller','','10',''),
           makeEx('Burpees (no push-up)','','8','Rest 60 sec after each round'),
         ],
         'Cool-Down':cooldown()
@@ -538,51 +540,61 @@ function phase3() {
 
 const PROGRAM = [...phase1(),...phase2(),...phase3()];
 
-// Exercise video demos (MuscleWiki / YouTube shorts)
+// Exercise video demos (MuscleWiki)
 const VIDEOS = {
-  'DB Bench Press':'https://musclewiki.com/dumbbells/male/chest/dumbbell-bench-press',
-  'DB Incline Press':'https://musclewiki.com/dumbbells/male/chest/dumbbell-incline-bench-press',
-  'DB Flyes':'https://musclewiki.com/dumbbells/male/chest/dumbbell-fly',
-  'DB Floor Press':'https://musclewiki.com/dumbbells/male/chest/dumbbell-floor-press',
-  'DB Shoulder Press (seated)':'https://musclewiki.com/dumbbells/male/shoulders/dumbbell-seated-overhead-press',
-  'DB Shoulder Press':'https://musclewiki.com/dumbbells/male/shoulders/dumbbell-seated-overhead-press',
-  'DB Arnold Press':'https://musclewiki.com/dumbbells/male/shoulders/dumbbell-arnold-press',
-  'DB Lateral Raises':'https://musclewiki.com/dumbbells/male/shoulders/dumbbell-lateral-raise',
-  'DB Lateral Raise Drop Set':'https://musclewiki.com/dumbbells/male/shoulders/dumbbell-lateral-raise',
-  'DB Front Raises':'https://musclewiki.com/dumbbells/male/shoulders/dumbbell-front-raise',
-  'DB Bent-Over Rows':'https://musclewiki.com/dumbbells/male/back/dumbbell-bent-over-row',
-  'DB Single-Arm Row':'https://musclewiki.com/dumbbells/male/back/dumbbell-row',
-  'DB Reverse Flyes':'https://musclewiki.com/dumbbells/male/back/dumbbell-reverse-fly',
-  'DB Pullovers':'https://musclewiki.com/dumbbells/male/back/dumbbell-pullover',
-  'DB Bicep Curls':'https://musclewiki.com/dumbbells/male/biceps/dumbbell-curl',
-  'DB Hammer Curls':'https://musclewiki.com/dumbbells/male/biceps/dumbbell-hammer-curl',
-  'DB Concentration Curls':'https://musclewiki.com/dumbbells/male/biceps/dumbbell-concentration-curl',
-  'DB Tricep Kickbacks':'https://musclewiki.com/dumbbells/male/triceps/dumbbell-kickback',
-  'DB Overhead Tricep Extension':'https://musclewiki.com/dumbbells/male/triceps/dumbbell-overhead-tricep-extension',
-  'DB Goblet Squats':'https://musclewiki.com/dumbbells/male/quads/dumbbell-goblet-squat',
-  'DB Lunges (alternating)':'https://musclewiki.com/dumbbells/male/quads/dumbbell-lunge',
-  'DB Lunges (stationary)':'https://musclewiki.com/dumbbells/male/quads/dumbbell-lunge',
-  'DB Reverse Lunges':'https://musclewiki.com/dumbbells/male/quads/dumbbell-reverse-lunge',
-  'DB Bulgarian Split Squats':'https://musclewiki.com/dumbbells/male/quads/dumbbell-bulgarian-split-squat',
-  'DB Step-Ups (on bench)':'https://musclewiki.com/dumbbells/male/quads/dumbbell-step-up',
-  'DB Step-Ups (weighted)':'https://musclewiki.com/dumbbells/male/quads/dumbbell-step-up',
-  'DB Romanian Deadlifts':'https://musclewiki.com/dumbbells/male/hamstrings/dumbbell-romanian-deadlift',
-  'DB Single-Leg Deadlift':'https://musclewiki.com/dumbbells/male/hamstrings/dumbbell-single-leg-deadlift',
-  'DB Calf Raises':'https://musclewiki.com/dumbbells/male/calves/dumbbell-calf-raise',
-  'DB Calf Raises (single leg)':'https://musclewiki.com/dumbbells/male/calves/dumbbell-calf-raise',
-  'DB Thrusters':'https://musclewiki.com/dumbbells/male/shoulders/dumbbell-thruster',
-  'DB Renegade Rows':'https://musclewiki.com/dumbbells/male/back/dumbbell-renegade-row',
-  'DB Curls + Tricep Kickbacks':'https://musclewiki.com/dumbbells/male/biceps/dumbbell-curl',
-  'DB Hammer Curls + OH Extension':'https://musclewiki.com/dumbbells/male/biceps/dumbbell-hammer-curl',
-  'Push-Ups':'https://musclewiki.com/bodyweight/male/chest/push-up',
-  'Plank (floor)':'https://musclewiki.com/bodyweight/male/abs/front-plank',
-  'Stability Ball Plank':'https://musclewiki.com/bodyweight/male/abs/front-plank',
-  'Stability Ball Crunches':'https://musclewiki.com/bodyweight/male/abs/crunch',
-  'Stability Ball Back Extensions':'https://musclewiki.com/bodyweight/male/lower-back/back-extension',
-  'Stability Ball Jackknife':'https://musclewiki.com/bodyweight/male/abs/front-plank',
-  'Dead Bugs':'https://musclewiki.com/bodyweight/male/abs/dead-bug',
-  'Bicycle Crunches':'https://musclewiki.com/bodyweight/male/abs/bicycle-crunch',
-  'Burpees (no push-up)':'https://musclewiki.com/bodyweight/male/cardio/burpee',
+  'DB Bench Press':'https://musclewiki.com/exercise/dumbbell-bench-press',
+  'DB Incline Press':'https://musclewiki.com/exercise/dumbbell-incline-bench-press',
+  'DB Flyes':'https://musclewiki.com/exercise/dumbbell-chest-fly',
+  'DB Floor Press':'https://musclewiki.com/exercise/dumbbell-floor-press',
+  'DB Shoulder Press (seated)':'https://musclewiki.com/exercise/dumbbell-seated-overhead-press',
+  'DB Shoulder Press':'https://musclewiki.com/exercise/dumbbell-seated-overhead-press',
+  'DB Arnold Press':'https://musclewiki.com/exercise/dumbbell-arnold-press',
+  'DB Lateral Raises':'https://musclewiki.com/exercise/dumbbell-lateral-raise',
+  'DB Lateral Raise Drop Set':'https://musclewiki.com/exercise/dumbbell-lateral-raise',
+  'DB Front Raises':'https://musclewiki.com/exercise/dumbbell-front-raise',
+  'DB Bent-Over Rows':'https://musclewiki.com/exercise/dumbbell-bent-over-row',
+  'DB Single-Arm Row':'https://musclewiki.com/exercise/dumbbell-row',
+  'DB Reverse Flyes':'https://musclewiki.com/exercise/dumbbell-rear-delt-fly',
+  'DB Pullovers':'https://musclewiki.com/exercise/dumbbell-pullover',
+  'DB Bicep Curls':'https://musclewiki.com/exercise/dumbbell-curl',
+  'DB Hammer Curls':'https://musclewiki.com/exercise/dumbbell-hammer-curl',
+  'DB Concentration Curls':'https://musclewiki.com/exercise/dumbbell-concentration-curl',
+  'DB Tricep Kickbacks':'https://musclewiki.com/exercise/dumbbell-tricep-kickback',
+  'DB Overhead Tricep Extension':'https://musclewiki.com/exercise/dumbbell-overhead-tricep-extension',
+  'DB Goblet Squats':'https://musclewiki.com/exercise/dumbbell-goblet-squat',
+  'DB Lunges (alternating)':'https://musclewiki.com/exercise/dumbbell-lunge',
+  'DB Lunges (stationary)':'https://musclewiki.com/exercise/dumbbell-lunge',
+  'DB Reverse Lunges':'https://musclewiki.com/exercise/dumbbell-reverse-lunge',
+  'DB Bulgarian Split Squats':'https://musclewiki.com/exercise/dumbbell-bulgarian-split-squat',
+  'DB Step-Ups (on bench)':'https://musclewiki.com/exercise/dumbbell-step-up',
+  'DB Step-Ups (weighted)':'https://musclewiki.com/exercise/dumbbell-step-up',
+  'DB Romanian Deadlifts':'https://musclewiki.com/exercise/dumbbell-romanian-deadlift',
+  'DB Single-Leg Deadlift':'https://musclewiki.com/exercise/dumbbell-single-leg-deadlift',
+  'DB Calf Raises':'https://musclewiki.com/exercise/dumbbell-calf-raise',
+  'DB Calf Raises (single leg)':'https://musclewiki.com/exercise/dumbbell-calf-raise',
+  'DB Thrusters':'https://musclewiki.com/exercise/dumbbell-thruster',
+  'DB Renegade Rows':'https://musclewiki.com/exercise/dumbbell-renegade-row',
+  'DB Curls + Tricep Kickbacks':'https://musclewiki.com/exercise/dumbbell-curl',
+  'DB Hammer Curls + OH Extension':'https://musclewiki.com/exercise/dumbbell-hammer-curl',
+  'Push-Ups':'https://musclewiki.com/exercise/push-up',
+  'Plank (floor)':'https://musclewiki.com/exercise/plank',
+  'Stability Ball Plank':'https://musclewiki.com/exercise/plank',
+  'Stability Ball Crunches':'https://musclewiki.com/exercise/bodyweight-stability-ball-crunch',
+  'Stability Ball Back Extensions':'https://musclewiki.com/exercise/lower-back-extensions-3',
+  'Stability Ball Jackknife':'https://musclewiki.com/exercise/stability-ball-knee-tuck',
+  'Dead Bugs':'https://musclewiki.com/exercise/dead-bug',
+  'Bicycle Crunches':'https://musclewiki.com/exercise/bicycle-crunch',
+  'Burpees (no push-up)':'https://musclewiki.com/exercise/burpee',
+  'Cable Chest Flyes':'https://musclewiki.com/exercise/cable-pec-fly',
+  'Cable Tricep Pushdowns':'https://musclewiki.com/exercise/cable-rope-pushdown',
+  'Cable Face Pulls':'https://musclewiki.com/exercise/machine-face-pulls',
+  'Cable Rows (seated on bench)':'https://musclewiki.com/exercise/machine-seated-cable-row',
+  'Cable Bicep Curls':'https://musclewiki.com/exercise/cable-bar-curl',
+  'Cable Woodchops':'https://musclewiki.com/exercise/cable-standing-high-to-low-wood-chopper',
+  'Ab Roller':'https://musclewiki.com/exercise/machine-roll-outs',
+  'Stair Climber':'https://musclewiki.com/exercise/stair-climber',
+  'Stair Climber intervals':'https://musclewiki.com/exercise/stair-climber',
+  'Stair Climber HIIT':'https://musclewiki.com/exercise/stair-climber',
 };
 
 // ═══════════════════════════════════════════════════════════════
